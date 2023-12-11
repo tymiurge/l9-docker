@@ -1,0 +1,9 @@
+FROM node:14
+WORKDIR /be
+# Copy package.json and package-lock.json into the container at /app
+COPY package*.json /be/
+# Install the application dependencies inside the container
+RUN npm install
+COPY . /be
+EXPOSE 5048
+CMD ["npm", "start"]

@@ -1,0 +1,31 @@
+version: '3'
+services:
+  be:
+    build:
+      context: .
+      dockerfile: be-dockerfile
+    networks:
+      - mynetwork
+    ports:
+      - "4048:4048"
+
+  fe:
+    build:
+      context: .
+      dockerfile: fe-dockerfile
+    networks:
+      - mynetwork
+    ports:
+      - "8080:8080"
+
+  pg:
+    build:
+      context: .
+      dockerfile: pg-dockerfile
+    networks:
+      - mynetwork
+    ports:
+      - "5432:5432"
+
+networks:
+  mynetwork:

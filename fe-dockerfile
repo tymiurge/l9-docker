@@ -1,0 +1,11 @@
+# Use an official Nginx runtime as a parent image
+FROM nginx:alpine
+WORKDIR /fe
+COPY . /fe
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Make port 4048 available to the world outside this container
+EXPOSE 4048
+
+# Run Nginx when the container launches
+CMD ["nginx", "-g", "daemon off;"]

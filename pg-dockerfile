@@ -1,0 +1,10 @@
+# Use an official PostgreSQL runtime as a parent image
+# It includes a CMD instruction to start the PostgreSQL server
+FROM postgres:13
+
+# Set environment variables for the PostgreSQL password and database name
+ENV POSTGRES_PASSWORD mysecretpassword
+ENV POSTGRES_DB mydatabase
+
+EXPOSE 5432
+
